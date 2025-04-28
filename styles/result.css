@@ -4,7 +4,7 @@
 }
 
 .main .container{
-    background-image: url("../images/Question-marks.png");
+    background-image: url("../static/images/Question-marks.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -16,7 +16,7 @@
 }
 
 .result-main-result{
-    background-image: url("../images/result-bg.png");
+    background-image: url("../static/images/result-bg.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

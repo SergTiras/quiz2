@@ -5,12 +5,12 @@
 
 @font-face {
     font-family: 'Museo';
-    src: url('../fonts/museosanscyrl-500.ttf');
+    src: url('../static/fonts/museosanscyrl-500.ttf');
 }
 
 @font-face {
     font-family: 'Museo-Bold';
-    src: url('../fonts/museo-sans-cyrl-700-regular.ttf');
+    src: url('../static/fonts/museo-sans-cyrl-700-regular.ttf');
 }
 
 body {
