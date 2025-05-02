@@ -1,0 +1,111 @@
+.main{
+    padding: 20px 0;
+}
+
+.answers-test-title{
+    display: flex;
+    margin-bottom: 60px;
+}
+
+.answers-test-pre-title{
+    font-size: 20px;
+    line-height: 24px;
+    color: #DCDCF3;
+    margin-right: 15px;
+}
+
+.answers-test-pre-title img{
+    margin-left: 15px;
+}
+
+.answers-title-name{
+    font-size: 20px;
+    line-height: 24px;
+    color: #6933DC;
+}
+
+.answers-right-answers{
+    margin-bottom: 10px;
+}
+
+.answers-user{
+
+}
+
+.answers-user-text{
+
+}
+
+.answers-user-data{
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    margin-bottom: 60px;
+}
+
+.answers-user-data span {
+    color: #6933DC;
+    margin-left: 3px;
+}
+
+.answers-quiz-item-title{
+    font-family: 'Museo-Bold', sans-serif;
+    font-size: 36px;
+    line-height: 43px;
+    margin-bottom: 40px;
+
+}
+
+.answers-quiz-item{
+    margin-bottom: 60px;
+}
+
+.answers-quiz-item-title span{
+    color: #6933DC;
+    margin-right: 5px;
+}
+
+.answers-quiz-item-options-variant{
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.answers-quiz-item-options-circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #6933DC;
+    box-sizing: border-box;
+    margin-right: 13px;
+}
+
+.correct-circle{
+    border: 6px solid #5FDC33;
+}
+
+.error-circle{
+    border: 6px solid #DC3333;
+}
+
+.answers-quiz-item-options-text {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.correct-text{
+    color: #5FDC33;
+}
+
+.error-text{
+    color: #DC3333;
+}
+
+.answers-back-to-result{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.answers-back-to-result img{
+    margin-left: 13px;
+}
