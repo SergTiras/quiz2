@@ -1,3 +1,5 @@
+import {UrlManager} from "../utils/url-manager.js";
+
 export class Test {
 
     constructor() {
@@ -11,31 +13,29 @@ export class Test {
             this.quiz = null;
             this.userResult = [];
 
-        checkUserData();
-        const url = new URL(location.href);
-        const testId = url.searchParams.get("id");
+        this.routeParams = UrlManager.getQueryParams();
+        UrlManager.checkUserData(this.routeParams);
 
-        if (testId) {
+        if (this.routeParams.id) {
             const xhr = new XMLHttpRequest();
-            xhr.open("GET", 'https://testologia.ru/get-quiz?id=' + testId, false);
+            xhr.open("GET", 'https://testologia.ru/get-quiz?id=' + this.routeParams.id, false);
             xhr.send();
             if (xhr.status === 200 && xhr.responseText) {
                 try {
                     this.quiz = JSON.parse(xhr.responseText);
                 } catch (e) {
-                    location.href = 'index.html';
+                    location.href = '/#';
                 }
                 this.startQuiz();
             } else {
-                location.href = 'index.html';
+                location.href = '/#';
             }
         } else {
-            location.href = 'index.html';
+            location.href = '/#';
         }
     }
 
     startQuiz() {
-        console.log(this.quiz);
         this.questionTitleElement = document.getElementById('test-title');
         document.getElementById('pre-title').innerText = this.quiz.name;
         this.testAnswers = document.getElementById('test-answers');
@@ -181,20 +181,15 @@ export class Test {
         this.showQuestion();
     }
     complete() {
-        const url = new URL(location.href);
-        const name = url.searchParams.get('name');
-        const surname = url.searchParams.get('surname');
-        const email = url.searchParams.get('email');
-        const testId = url.searchParams.get("id");
 
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", 'https://testologia.ru/pass-quiz?id=' + testId, false);
+        xhr.open("POST", 'https://testologia.ru/pass-quiz?id=' + this.routeParams.id, false);
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
         xhr.send(JSON.stringify({
-            name: name,
-            surname: surname,
-            email: email,
-            id: testId,
+            name: this.routeParams.name,
+            surname: this.routeParams.surname,
+            email: this.routeParams.email,
+            id: this.routeParams.id,
             results: this.userResult,
         }));
         if (xhr.status === 200 && xhr.responseText) {
@@ -202,13 +197,15 @@ export class Test {
             try {
                 result = JSON.parse(xhr.responseText);
             } catch (e) {
-                location.href = 'index.html';
+                // location.href = '/#';
+                console.log('not parse');
             }
             if (result) {
-                console.log(result);
+                location.href = '#/result?score=' + result.score + "&total=" + result.total;
             }
         } else {
-            location.href = 'index.html';
+            // location.href = '/#';
+            console.log('not answer')
         }
     }
 }

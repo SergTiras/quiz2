@@ -13,13 +13,13 @@
                     try {
                         this.quiz = JSON.parse(xhr.responseText);
                     } catch (e) {
-                        location.href = 'index.html';
+                        location.href = '/#';
                     }
                 } else {
-                    location.href = 'index.html';
+                    location.href = '/#';
                 }
             } else {
-                location.href = 'index.html';
+                location.href = '/#';
             }
 
             this.getAnswers();
